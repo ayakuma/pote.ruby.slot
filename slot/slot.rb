@@ -1,19 +1,21 @@
 
 puts "-------------"
 puts "残りのコイン数：100"
+puts "ポイント 0"
 coin = 100
+point = 0
 loop do
 
   select = [5,10,20,"やめとく"]
   
   num1 = rand(9)
-  num2 = rand(5..7)
+  num2 = rand(6..7)
   num3 = rand(9)
   num4 = rand(9)
-  num5 = rand(5..7)
+  num5 = rand(6..7)
   num6 = rand(9)
   num7 = rand(9)
-  num8 = rand(4..7)
+  num8 = rand(6..7)
   num9 = rand(9)
 
   puts "何コイン入れますか？"
@@ -24,7 +26,7 @@ loop do
   if putin == 3
     puts "またチャレンジしてね！"
     break
-  elsif coin <= select[putin]
+  elsif coin < select[putin]
     puts "#{select[putin]- coin}コイン足りないよ。またチャレンジしてね！"
     break
   end
@@ -50,19 +52,28 @@ loop do
     puts "-------------"
     puts "ラッキーセブン！真ん中に7の数字が揃いました！"
     puts "100コイン獲得！"
+    puts "500ポイント獲得！"
+    puts "-------------"
     coin = coin + 100 - select[putin]
+    point = point + 500
     puts "残りのコイン数：#{coin}"
+    puts "獲得ポイント#{point}"
   elsif (num2 == num5) && (num5 == num8) 
     puts "-------------"
     puts "おめでとう！真ん中が同じ数字になりました！"
     puts "50コイン獲得！"
+    puts "200ポイント獲得！"
+    puts "-------------"
     coin = coin + 50 - select[putin]
+    point = point + 200
     puts "残りのコイン数：#{coin}"
+    puts "獲得ポイント#{point}"
   else
     puts "-------------"
     puts "残念！もう一回挑戦しよう！"
     coin = coin - select[putin]
     puts "残りのコイン数：#{coin}"
+    puts "獲得ポイント#{point}"
   end
 
 end
